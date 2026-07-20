@@ -5,6 +5,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0175-combine-two-tables](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0175-combine-two-tables) |
+| [0177-nth-highest-salary](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0177-nth-highest-salary) |
 | [0185-department-top-three-salaries](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0185-department-top-three-salaries) |
 | [0550-game-play-analysis-iv](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0550-game-play-analysis-iv) |
 | [0601-human-traffic-of-stadium](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0601-human-traffic-of-stadium) |
