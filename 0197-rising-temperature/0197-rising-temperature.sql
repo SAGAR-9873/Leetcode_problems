@@ -1,11 +1,9 @@
-# Write your MySQL query statement below
-with temp_list as (
+with cte as (
 select *,
-lag(temperature) over(order by recordDate) as previous_temperature,
-lag(recordDate) over(order by recordDate) as previous_Date
-from Weather 
-)
-select id as Id
-from temp_list
-where previous_temperature < temperature and 
-DATEDIFF(recordDate, previous_Date) = 1 ;
+    lag(temperature) over( order by recordDate) as prev_temp,
+    lag(recordDate) over( order by recordDate) as prev_date
+from Weather )
+select id 
+from cte
+where datediff(recordDate,prev_date)=1 and temperature > prev_temp 
+ 
