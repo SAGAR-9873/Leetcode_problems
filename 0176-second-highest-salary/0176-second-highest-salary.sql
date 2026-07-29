@@ -1,7 +1,10 @@
-SELECT IFNULL(
-    (SELECT DISTINCT Salary 
-     FROM Employee 
-     ORDER BY Salary DESC 
-     LIMIT 1 OFFSET 1), 
-    NULL
-) AS SecondHighestSalary;
+WITH cte AS (
+    SELECT
+        salary,
+        DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+)
+SELECT MAX(salary) AS SecondHighestSalary
+FROM cte
+WHERE rnk = 2;
+ 
