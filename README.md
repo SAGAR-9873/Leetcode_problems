@@ -20,6 +20,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0601-human-traffic-of-stadium](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0601-human-traffic-of-stadium) |
 | [0607-sales-person](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0607-sales-person) |
 | [0610-triangle-judgement](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0610-triangle-judgement) |
+| [0619-biggest-single-number](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/0619-biggest-single-number) |
 | [1068-product-sales-analysis-i](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1068-product-sales-analysis-i) |
 | [1581-customer-who-visited-but-did-not-make-any-transactions](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1581-customer-who-visited-but-did-not-make-any-transactions) |
 <!---LeetCode Topics End-->
