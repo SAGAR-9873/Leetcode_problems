@@ -1,10 +1,5 @@
-# Write your MySQL query statement below
-select distinct class
-from 
-(
-select class,
-count(student) over(partition by class) as no_of_students 
-from Courses ) as cte 
-where no_of_students >= 5
-
-
+select class 
+from(select class, count(student) as c 
+from Courses
+group by class) as t
+where c >= 5;
