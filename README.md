@@ -36,5 +36,6 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1070-product-sales-analysis-iii](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1070-product-sales-analysis-iii) |
 | [1075-project-employees-i](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1075-project-employees-i) |
 | [1158-market-analysis-i](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1158-market-analysis-i) |
+| [1164-product-price-at-a-given-date](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1164-product-price-at-a-given-date) |
 | [1581-customer-who-visited-but-did-not-make-any-transactions](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1581-customer-who-visited-but-did-not-make-any-transactions) |
 <!---LeetCode Topics End-->
