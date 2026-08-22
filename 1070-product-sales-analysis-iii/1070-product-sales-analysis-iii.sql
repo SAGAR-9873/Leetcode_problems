@@ -6,4 +6,4 @@ select s.product_id ,c.first_year,s.quantity ,s.price
 FROM Sales s
 JOIN cte c
   ON s.product_id = c.product_id
- AND s.year = c.first_year
+ AND s.year = c.first_year;
