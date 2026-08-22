@@ -1,5 +1,5 @@
 with cte as (
-select sale_id,product_id,min(year) as first_year
+select product_id,min(year) as first_year
 from sales
 group by product_id)
 select s.product_id ,c.first_year,s.quantity ,s.price
