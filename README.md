@@ -49,4 +49,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [1934-confirmation-rate](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/1934-confirmation-rate) |
 | [3421-find-students-who-improved](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/3421-find-students-who-improved) |
 | [3475-dna-pattern-recognition](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/3475-dna-pattern-recognition) |
+| [3497-analyze-subscription-conversion](https://github.com/SAGAR-9873/Leetcode_problems/tree/master/3497-analyze-subscription-conversion) |
 <!---LeetCode Topics End-->
