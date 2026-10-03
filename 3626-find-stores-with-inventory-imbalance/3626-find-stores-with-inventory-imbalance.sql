@@ -1,3 +1,18 @@
+with cte as (
+select store_id , product_name , quantity , price ,cheapest_product , most_exp_product
+from(select *,
+    count(product_name) over(partition by store_id) as c,
+    case when min(price) over(partition by store_id) = price then product_name else "no product" end as cheapest_product ,
+    case when max(price) over(partition by store_id) = price then product_name else "no product" end as most_exp_product
+    from inventory) as inv 
+where c >= 3 and (cheapest_product != "no product" or most_exp_product !="no product")
+)
+select c1.store_id, s.store_name , s.location ,c2.most_exp_product,c1.cheapest_product,round((c1.quantity / c2.quantity),2) as imbalance_ratio
+from cte c1 join cte c2
+on c1.store_id=c2.store_id and (c1.cheapest_product != "no product" and c2.most_exp_product !="no product") and (c2.quantity < c1.quantity)
+join stores s on c1.store_id = s.store_id
+order by imbalance_ratio desc
+
 -- WITH cte1 AS (
 --     SELECT store_id,
 --            most_exp_product,
@@ -109,20 +124,7 @@
 -- on i1.store_id = i2.store_id )
 -- select store_id, h , l from cte 
 -- where h!= "no" or l!= "no"\
-with cte as (
-select store_id , product_name , quantity , price ,cheapest_product , most_exp_product
-from(select *,
-    count(product_name) over(partition by store_id) as c,
-    case when min(price) over(partition by store_id) = price then product_name else "no product" end as cheapest_product ,
-    case when max(price) over(partition by store_id) = price then product_name else "no product" end as most_exp_product
-    from inventory) as inv 
-where c >= 3 and (cheapest_product != "no product" or most_exp_product !="no product")
-)
-select c1.store_id, s.store_name , s.location ,c2.most_exp_product,c1.cheapest_product,round((c1.quantity / c2.quantity),2) as imbalance_ratio
-from cte c1 join cte c2
-on c1.store_id=c2.store_id and (c1.cheapest_product != "no product" and c2.most_exp_product !="no product") and (c2.quantity < c1.quantity)
-join stores s on c1.store_id = s.store_id
-order by imbalance_ratio desc
+
 
 
 
