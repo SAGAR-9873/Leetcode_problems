@@ -41,3 +41,71 @@ JOIN cte2
     ON cte1.store_id = cte2.store_id join stores as s on s.store_id = cte1.store_id 
 
 order by cte1.imbalance_ratio desc    
+
+-- with cte as (
+--     SELECT   s.store_id ,
+--          s.store_name ,
+--          s.location , 
+--          i.product_name ,
+--          rank() over (partition by s.store_id order by i.price desc) as most_exp_product,
+--          rank() over (partition by s.store_id order by i.price ) as cheapest_product,
+--          i.quantity
+-- FROM inventory i left join stores s 
+-- on i.store_id = s.store_id )
+-- select c1.store_id ,
+--          c1.store_name ,
+--          c1.location , 
+--          c1.product_name
+-- from cte c1 join cte c2 
+-- on  c1.most_exp_product = 1 or c1.cheapest_product = 1 
+
+
+-- select store_id ,
+--        (select case when price = max(price) then product_name else "no_product" end as most_exp_product from inventory  group by store_id ) ,
+--        (select case when price = min(price) then product_name else "no_product" end as cheapest_product from inventory group by store_id )
+-- from inventory 
+
+-- select case when price = max(price) then product_name else "no_product" end as most_exp_product from inventory  group by store_id 
+-- union all
+
+-- select case when price = min(price) then product_name else "no_product" end as most_exp_product from inventory  group by store_id 
+
+
+
+-- select store_id ,
+--        count(product_name)
+-- from inventory 
+-- group by store_id
+
+-- with cte as (
+-- select store_id ,
+--          count(product_name) over(partition by store_id) as c ,
+--          rank() over (partition by store_id order by price desc)as r, product_name
+-- from inventory)
+
+-- select c1.store_id , c1.r ,c2.c, c1.product_name , c2.product_name
+-- from cte c1 join cte c2 
+-- on  c1.store_id = c2.store_id
+-- where c1.c>=3 and c1.r=1 or c1.c 
+-- order by c1.store_id
+
+-- with cte as (
+-- select i1.store_id , rank() over (partition by i1.store_id order by i1.price desc) as r ,
+-- CASE 
+--     WHEN MAX(i1.price) OVER (PARTITION BY i1.store_id) = i1.price 
+--      AND MIN(i1.price) OVER (PARTITION BY i2.store_id) = i2.price 
+--     THEN i1.product_name 
+--     ELSE 'no' 
+-- END AS highest_product,
+
+-- CASE 
+--     WHEN MAX(i1.price) OVER (PARTITION BY i1.store_id) = i1.price 
+--      AND MIN(i1.price) OVER (PARTITION BY i2.store_id) = i2.price 
+--     THEN i2.product_name 
+--     ELSE 'no' 
+-- END AS lowest_product
+
+-- from inventory i1 join inventory i2 
+-- on i1.store_id = i2.store_id )
+-- select store_id, h , l from cte 
+-- where h!= "no" or l!= "no"\
