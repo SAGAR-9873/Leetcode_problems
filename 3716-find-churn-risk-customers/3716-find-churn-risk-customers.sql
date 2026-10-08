@@ -1,6 +1,6 @@
 with cte as (select * , 
 max(monthly_amount) over(partition by user_id) as max_historical_amount,
-case when event_date = max(event_date) over (partition by user_id) then monthly_amount else "NO" end as current_monthly_amount,
+case when event_date = max(event_date) over (partition by user_id) then monthly_amount else null end as current_monthly_amount,
 DATEDIFF(max(event_date) over (partition by user_id), min(event_date) over (partition by user_id)) AS DaysDifference
 from subscription_events 
 where user_id in 
