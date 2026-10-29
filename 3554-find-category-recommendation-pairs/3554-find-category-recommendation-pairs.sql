@@ -1,4 +1,4 @@
-with cte as (SELECT p1.* , p2.category
+with cte as (SELECT p1.user_id , p2.category
 FROM ProductPurchases p1 join ProductInfo p2 
 on p1.product_id  = p2.product_id )
 
